@@ -2,7 +2,7 @@
 import requests
 from pprint import pprint
 
-URL = 'http://127.0.0.1:8000/api/v1/real-time-inference'
+URL = 'http://127.0.0.1:80/api/v1/real-time-inference'
 
 print("SPAM and HAM")
 payload = {

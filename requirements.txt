@@ -5,9 +5,9 @@ scikit-learn
 xgboost
 imblearn
 joblib
-re
-html
 nltk
 fastapi
 pytest
 requests
+ipykernel
+uvicorn

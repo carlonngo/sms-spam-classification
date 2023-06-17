@@ -9,6 +9,10 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 class MessagePreprocessor():
     def __init__(self):
         self.lemmatizer = WordNetLemmatizer()
