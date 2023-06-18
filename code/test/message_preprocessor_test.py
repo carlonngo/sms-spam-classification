@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-
+"""pytest module to perform unit testing on the MessagePreprocessor class"""
 import pytest
 from pandas.testing import assert_series_equal
-import message_preprocessor_test_constants as c
 from message_preprocessor import MessagePreprocessor
+import message_preprocessor_test_constants as c
 
 @pytest.mark.parametrize(
     'raw_text_series, expected_cleaned_text_series',
