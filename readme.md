@@ -6,6 +6,7 @@ This repository contains the code for building and deploying a SMS spam classifi
 * [Model Artifacts](./model/)
 * [FastAPI Inference Code](./code/server.py)
 * [Dockerfile](./Dockerfile)
+* [DockerImage](https://hub.docker.com/repository/docker/carlongo/sms-spam-classifier/general)
 * [How to start the application](#installation)
 
 ## Features
@@ -35,16 +36,22 @@ Provides a REST API for interacting with the classifier.
     ```bash
     cd code
     python -m pytest
+    cd .. 
     ```
     ![pytest](./img/pytest.png)
 4. Build the Docker image
     ```bash
-    cd .. #if you ran the pytest
     docker build -t sms-spam-classifier-image .
+
+    #Alternatively, just pull the image from dockerhub
+    docker pull carlongo/sms-spam-classifier:v1.0
     ```
 5. Run the Docker container
     ```bash
     docker run -d --name sms-spam-classifier-container -p 80:80 sms-spam-classifier-image
+
+    #Alternatively, run the image pulled from dockerhub
+    docker run -p 80:80 carlongo/sms-spam-classifier:v1.0
     ```
 
 ## Usage
