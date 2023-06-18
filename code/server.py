@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-from fastapi import FastAPI
+"""Module to expose the inference code as an API service"""
 from functools import lru_cache
-from sms_classification_inference_data import SpamClassificationRequest, SpamClassificationResponse
+from fastapi import FastAPI
 import pandas as pd
 import joblib
 
+from sms_classification_inference_data import SpamClassificationRequest, SpamClassificationResponse
 from message_preprocessor import MessagePreprocessor
 import constants as c
 
@@ -17,6 +18,8 @@ app = FastAPI()
 
 @lru_cache()
 def preprocess_message(input_data):
+    """Combines all the preprocessing steps into one function
+       lru_cache returns previous output if input is the same"""
     input_data      = pd.Series(input_data)
     clean_text      = message_preprocessor.clean_text(input_data)
     tokenize_test   = message_preprocessor.tokenize(clean_text)
@@ -28,6 +31,10 @@ def preprocess_message(input_data):
 
 @app.post('/api/v1/real-time-inference')
 async def real_time_inference(request: SpamClassificationRequest) -> SpamClassificationResponse:
+    """function for the real-time-inference endpoint.
+       Runs the same preprocessing techniques in training
+       and uses the training model artifacts for prediction"""
+
     messages = tuple(request.messages) #to make it cacheable
     X = preprocess_message(messages)
 
@@ -46,5 +53,6 @@ async def real_time_inference(request: SpamClassificationRequest) -> SpamClassif
 
 
 @app.get('/api/v1/health-check', status_code=200)
-async def real_time_inference():
+async def health_check():
+    """health check endpoint just to check if server is available"""
     return

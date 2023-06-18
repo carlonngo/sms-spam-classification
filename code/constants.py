@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Module holding constants used in training and inference code for SMS classification"""
 import os
 
 RAW_FILE = '../data/SMSSpamCollection'

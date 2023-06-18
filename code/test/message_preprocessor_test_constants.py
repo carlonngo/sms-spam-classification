@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Module containing constant inputs and expected output for the unit test"""
 import pandas as pd
 
 RAW_TEXT_SERIES = pd.Series(
