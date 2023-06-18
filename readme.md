@@ -2,7 +2,7 @@
 This repository contains the code for building and deploying a SMS spam classifier using Dockerized inference code. The classifier is trained to differentiate between legitimate messages(ham) and spam messages using machine learning techniques.
 
 ## Important Files and Directories:
-* [Jupyter Notebook](./notebook/solution.ipynb)
+* [Jupyter Notebooks](./notebook/)
 * [Model Artifacts](./model/)
 * [FastAPI Inference Code](./code/server.py)
 * [Dockerfile](./Dockerfile)
@@ -44,14 +44,14 @@ Provides a REST API for interacting with the classifier.
     docker build -t sms-spam-classifier-image .
 
     #Alternatively, just pull the image from dockerhub
-    docker pull carlongo/sms-spam-classifier:v1.0
+    docker pull carlongo/sms-spam-classifier:v1.1
     ```
 5. Run the Docker container
     ```bash
     docker run -d --name sms-spam-classifier-container -p 80:80 sms-spam-classifier-image
 
     #Alternatively, run the image pulled from dockerhub
-    docker run -p 80:80 carlongo/sms-spam-classifier:v1.0
+    docker run -d --name sms-spam-classifier-container -p 80:80 carlongo/sms-spam-classifier:v1.1
     ```
 
 ## Usage
@@ -59,7 +59,27 @@ Once the Docker container is running, you can interact with the SMS spam classif
 You should be able to see a swagger API documentation at: http://127.0.0.1/docs
 ![swagger_api](./img/swagger_api.png)
 ### API Endpoints
-* `POST /real-time-inference`: Classify single/multiple SMS message(s) as spam or ham.
+* `POST /api/v1/real-time-inference`: Classify single/multiple SMS message(s) as spam or ham using random forest.
+    * Request body (JSON format):
+        ```json
+        {
+            "messages": [
+                "string"
+            ]
+        }
+        ```
+    * Response body (JSON format):
+        ```json
+        {
+            "response": [
+                {
+                "body": "string",
+                "label": "string"
+                }
+            ]
+        }
+        ```
+* `POST /api/v2/real-time-inference`: Classify single/multiple SMS message(s) as spam or ham using a deep learning model.
     * Request body (JSON format):
         ```json
         {

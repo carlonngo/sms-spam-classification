@@ -12,3 +12,6 @@ requests
 ipykernel
 uvicorn
 jupyter
+keras
+keras_preprocessing
+tensorflow
