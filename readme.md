@@ -21,6 +21,7 @@ Provides a REST API for interacting with the classifier.
 * FastAPI (for the REST API)
 * Scikit-learn (to train the machine learning model)
 * NLTK (for natural language processing)
+* Tensorflow and Keras (for deep learning)
 * Extensive list in [requirements.txt](./requirements.txt)
 
 ## Installation
