@@ -130,5 +130,9 @@ python code/client.py
 ```
 ![client](./img/client.png)
 
+## Deployment
+The infrastructure for this project uses Azure container instances and is written in as code in [main.tf](./main.tf)\
+You can view the docs and hit the inference endpoints using the host: http://sms-spam-classifier-dns-label.australiaeast.azurecontainer.io
+
 ## Acknowledgments
 The machine learning model used in this project was trained using the SMS Spam Collection dataset, which can be found at https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection.

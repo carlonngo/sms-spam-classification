@@ -2,7 +2,8 @@
 import requests
 from pprint import pprint
 
-HOST = 'http://127.0.0.1:80'
+HOST = 'http://sms-spam-classifier-dns-label.australiaeast.azurecontainer.io'
+# HOST = 'http://127.0.0.1:80' #LOCAL: uncomment to invoke local container
 URL_V1 = f'{HOST}/api/v1/real-time-inference'
 URL_V2 = f'{HOST}/api/v2/real-time-inference'
 
