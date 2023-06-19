@@ -21,6 +21,7 @@ Provides a REST API for interacting with the classifier.
 * FastAPI (for the REST API)
 * Scikit-learn (to train the machine learning model)
 * NLTK (for natural language processing)
+* Tensorflow and Keras (for deep learning)
 * Extensive list in [requirements.txt](./requirements.txt)
 
 ## Installation
@@ -44,14 +45,14 @@ Provides a REST API for interacting with the classifier.
     docker build -t sms-spam-classifier-image .
 
     #Alternatively, just pull the image from dockerhub
-    docker pull carlongo/sms-spam-classifier:v1.1
+    docker pull carlongo/sms-spam-classifier:v1.2
     ```
 5. Run the Docker container
     ```bash
     docker run -d --name sms-spam-classifier-container -p 80:80 sms-spam-classifier-image
 
     #Alternatively, run the image pulled from dockerhub
-    docker run -d --name sms-spam-classifier-container -p 80:80 carlongo/sms-spam-classifier:v1.1
+    docker run -d --name sms-spam-classifier-container -p 80:80 carlongo/sms-spam-classifier:v1.2
     ```
 
 ## Usage
