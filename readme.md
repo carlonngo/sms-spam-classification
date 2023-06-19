@@ -127,7 +127,7 @@ This will return the classification of the message as a response:
 A sample [client.py](./client.py) is available that can act as client to our server.\
 NOTE: you need the **requests** module to run it.
 ```bash
-python code/client.py
+python client.py
 ```
 ![client](./img/client.png)
 
