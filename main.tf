@@ -17,7 +17,7 @@ resource "azurerm_container_group" "sms-spam-classifier" {
 
   container {
     name   = "sms-spam-classifier-container"
-    image  = "carlongo/sms-spam-classifier:v1.1"
+    image  = "carlongo/sms-spam-classifier:v1.2"
     cpu    = "0.5"
     memory = "1.5"
     ports {
